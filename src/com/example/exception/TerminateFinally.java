@@ -18,5 +18,4 @@ public class TerminateFinally {
 		Student stu = new Student();
 		System.out.println(stu.strReturn());
 	}
-
 }
