@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 public class FirstAlphabet {
 //	Program to print the first alphabet of the each word from a statement using java 8 stream
 	public static void main(String[] args) {
-		String statement = "This is my <oditas interview no 1";
+		String statement = "This is my <oditas interview no 1"; //output: T i m o i n
 		
 		Arrays.stream(statement.split(" "))
         .map(word -> word.chars()
