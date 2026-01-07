@@ -6,10 +6,10 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 record Department(String deptName) {
-};
+}
 
 record Employee(String name, Department department) {
-};
+}
 
 public class AdvancedMapping {
 
@@ -42,7 +42,5 @@ public class AdvancedMapping {
 		for(var map : stringValueMap.entrySet()) {
 			System.out.println(map.getKey().deptName() + ": " + map.getValue());
 		}
-		
 	}
-
 }
