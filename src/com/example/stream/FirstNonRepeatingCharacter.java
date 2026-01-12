@@ -19,6 +19,12 @@ public class FirstNonRepeatingCharacter {
 		.filter(c-> input.indexOf(c) == input.lastIndexOf(c))
 		.findFirst().get();
 		System.out.println(first);
+		
+		int asInt = input.chars()
+				.filter(c -> input.indexOf(c)==input.lastIndexOf(c))
+				.findFirst().getAsInt();
+		System.out.println(asInt);
+		System.out.println(Character.toString(asInt));
+		
 	}
-
 }
