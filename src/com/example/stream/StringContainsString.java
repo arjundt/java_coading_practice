@@ -10,5 +10,7 @@ public class StringContainsString {
 		boolean anyMatch = strings.stream().anyMatch(s -> s.contains("API"));
 		System.out.println(anyMatch);
 		
+		String strMatch = strings.stream().filter(s -> s.contains("API")).findFirst().get();
+		System.out.println(strMatch);
 	}
 }

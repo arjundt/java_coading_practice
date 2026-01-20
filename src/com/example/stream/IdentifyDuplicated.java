@@ -17,6 +17,11 @@ public class IdentifyDuplicated {
 				.collect(Collectors.toSet());
 //				.collect(Collectors.toCollection(HashSet::new));
 		System.out.println(duplicates);
+		
+		Set<Integer> unique1 = new HashSet<>();
+		numbers.stream()
+				.filter(num -> !unique1.add(num))
+				.collect(Collectors.toSet())
+				.forEach(System.out::println);;
 	}
-
 }
