@@ -3,6 +3,7 @@ package com.example.stream;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.stream.Collectors;
 
 //Group a list of strings based on their length
@@ -13,5 +14,14 @@ public class GroupStringByLength {
 		Map<Integer, List<String>> collect = words.stream().collect(Collectors.groupingBy(String::length));
 		
 		System.out.println(collect);
+		
+		
+		
+		Map<Integer, List<String>> map = words.stream().collect(Collectors.groupingBy(String::length));
+		for (Map.Entry<Integer, List<String>> entry : map.entrySet()) {
+			Integer key = entry.getKey();
+			List<String> val = entry.getValue();
+			System.out.println(key + ": " + val);
+		}
 	}
 }

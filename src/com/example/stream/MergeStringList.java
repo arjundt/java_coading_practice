@@ -13,5 +13,8 @@ public class MergeStringList {
 		
 		String finalStr2 = words.stream().reduce("", (a,b) -> a + " " + b).trim();
 		System.out.println(finalStr2);
+		
+		String joinedStr = words.stream().collect(Collectors.joining(" "));
+		System.out.println(joinedStr);
 	}
 }

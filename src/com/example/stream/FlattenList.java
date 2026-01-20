@@ -1,7 +1,9 @@
 package com.example.stream;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 //Given a list of lists, flatten it into a single list
 public class FlattenList {
@@ -14,5 +16,10 @@ public class FlattenList {
 			);
 		List<Integer> flatList = listOfLists.stream().flatMap(List::stream).toList();
 		System.out.println(flatList);
+		
+		ArrayList<Integer> singleList = listOfLists.stream()
+				.flatMap(lst -> lst.stream())
+				.collect(Collectors.toCollection(ArrayList::new));
+		singleList.forEach(System.out::println);
 	}
 }
