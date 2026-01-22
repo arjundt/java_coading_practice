@@ -26,5 +26,4 @@ public class FilterAndConvertMapToList {
 				.toList();
 			System.out.println(keyList2);
 	}
-
 }
