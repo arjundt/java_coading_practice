@@ -16,14 +16,12 @@ class Student {
 
 public class NHighestScores {
 	public static void main(String[] args) {
-		List<Student> students = Arrays.asList(
-			    new Student("Alice", 85),
-			    new Student("Bob", 92),
-			    new Student("Charlie", 88),
-			    new Student("Dave", 78),
-			    new Student("Eve", 91)
-			);
-		List<Student> toppers = students.stream().sorted(Comparator.comparingInt((Student s) -> s.score).reversed()).limit(3).toList();
+		List<Student> students = Arrays.asList(new Student("Alice", 85), new Student("Bob", 92),
+				new Student("Charlie", 88), new Student("Dave", 78), new Student("Eve", 91));
+		List<Student> toppers = students.stream()
+				.sorted(Comparator.comparingInt((Student s) -> s.score).reversed())
+				.limit(3)
+				.toList();
 		toppers.forEach(stu -> System.out.println(stu.name));
 	}
 }
