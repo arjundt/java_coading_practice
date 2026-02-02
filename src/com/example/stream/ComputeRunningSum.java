@@ -21,16 +21,6 @@ public class ComputeRunningSum {
 			sum += numbers.get(i);
 			runningSum[i] = sum; 
 		}
-		System.out.println(Arrays.toString(runningSum));
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		System.out.println(Arrays.toString(runningSum));	
 	}
 }
