@@ -21,5 +21,8 @@ public class FlattenList {
 				.flatMap(lst -> lst.stream())
 				.collect(Collectors.toCollection(ArrayList::new));
 		singleList.forEach(System.out::println);
+		
+		List<Integer> list2 = listOfLists.stream().flatMap(list -> list.stream()).toList();
+		System.out.println(list2);
 	}
 }
