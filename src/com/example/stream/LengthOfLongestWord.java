@@ -1,6 +1,7 @@
 package com.example.stream;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
@@ -13,5 +14,11 @@ public class LengthOfLongestWord {
 		Map<String, Integer> collect = names.stream()
 				.collect(Collectors.toMap(Function.identity(), String::length));
 		System.out.println(collect);
+		
+		System.out.println(collect.values().stream()
+				.sorted(Comparator.reverseOrder()).findFirst().get());
+		
+		int maxAsInt = collect.entrySet().stream().mapToInt(map -> map.getValue()).max().getAsInt();
+		System.out.println(maxAsInt);
 	}
 }
