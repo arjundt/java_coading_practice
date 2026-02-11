@@ -1,6 +1,7 @@
 package com.example.stream;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 public class MaximumValue {
@@ -11,5 +12,8 @@ public class MaximumValue {
 		System.out.println(max1);
 		
 		myList.stream().max(Integer::compareTo).ifPresent(System.out::println);
+		
+		int[] arr = {10,15,8,49,25,98,98,32,15};
+		Arrays.stream(arr).boxed().max(Comparator.naturalOrder()).ifPresent(System.out::println);;
 	}
 }
