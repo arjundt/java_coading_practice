@@ -1,6 +1,7 @@
 package com.example.stream;
 
 import java.util.LinkedHashMap;
+import java.util.Map.Entry;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -21,16 +22,16 @@ public class FirstNonRepeatingCharacter {
 		String input = "swiss";
 		Character first = input.chars().mapToObj(c -> (char) c)
 		.filter(c-> input.indexOf(c) == input.lastIndexOf(c))
-		.findFirst().get();
+		.findFirst().orElse('#');
 		System.out.println(first);
 		
 		int asInt = input.chars()
-				.filter(c -> input.indexOf(c)==input.lastIndexOf(c))
-				.findFirst().getAsInt();
+			.filter(c -> input.indexOf(c)==input.lastIndexOf(c))
+			.findFirst().getAsInt();
 		System.out.println(asInt);
 		System.out.println(Character.toString(asInt));
 		
-		
+//		--------------------------------------------
 		String str = "Salars";  //l
 
         Character firstNonRepeating = str.toLowerCase().chars()
@@ -49,10 +50,9 @@ public class FirstNonRepeatingCharacter {
         				LinkedHashMap::new, Collectors.counting()))
         		.entrySet().stream()
         		.filter(e -> e.getValue() > 1)
-        		.map(e -> e.getKey())
+        		.map(Entry::getKey)
         		.findFirst()
         		.orElse('#');
         System.out.println(firstRepeating);
-        
 	}
 }
