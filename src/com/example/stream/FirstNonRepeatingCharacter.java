@@ -43,7 +43,16 @@ public class FirstNonRepeatingCharacter {
         		.orElse('#');
         System.out.println(firstNonRepeating);
         
-        // str.toLowerCase().chars().mapToObj(c -> (char)c)
-        // .filter(c -> duplicate.add(c)); //s
+        Character firstRepeating = str.toLowerCase().chars()
+        		.mapToObj(c -> (char)c)
+        		.collect(Collectors.groupingBy(Function.identity(), 
+        				LinkedHashMap::new, Collectors.counting()))
+        		.entrySet().stream()
+        		.filter(e -> e.getValue() > 1)
+        		.map(e -> e.getKey())
+        		.findFirst()
+        		.orElse('#');
+        System.out.println(firstRepeating);
+        
 	}
 }
