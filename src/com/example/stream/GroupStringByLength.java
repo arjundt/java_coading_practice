@@ -3,7 +3,6 @@ package com.example.stream;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.stream.Collectors;
 
 //Group a list of strings based on their length

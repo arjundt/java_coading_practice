@@ -1,7 +1,6 @@
 package com.example.stream;
 
 import java.util.Arrays;
-import java.util.stream.Stream;
 
 public class MaxNum {
 

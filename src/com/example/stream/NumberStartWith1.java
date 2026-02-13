@@ -3,7 +3,6 @@ package com.example.stream;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class NumberStartWith1 {
 //	Given a list of integers, find out all the numbers starting with 1 using Stream functions

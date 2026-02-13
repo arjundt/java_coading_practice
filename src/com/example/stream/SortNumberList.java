@@ -14,5 +14,4 @@ public class SortNumberList {
 				.collect(Collectors.toCollection(ArrayList::new));
 		System.out.println(collect);
 	}
-
 }
