@@ -21,7 +21,8 @@ public class ContainsDuplicate {
 
 		/* or can also try below way */
 		Set<Integer> setData = new HashSet<>();
-		boolean containsDuplicate = Arrays.stream(nums).anyMatch(num -> !setData.add(num));
+		boolean containsDuplicate = Arrays.stream(nums)
+				.anyMatch(num -> !setData.add(num));
 		System.out.println(containsDuplicate);
 	}
 }
