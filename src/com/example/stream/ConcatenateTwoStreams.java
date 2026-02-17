@@ -12,5 +12,4 @@ public class ConcatenateTwoStreams {
         
         Stream.concat(list1.stream(), list2.stream()).forEach(System.out::println);;
 	}
-
 }
