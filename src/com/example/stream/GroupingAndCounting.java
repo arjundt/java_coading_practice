@@ -7,7 +7,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 //count each element/word from the String ArrayList in Java8
-public class GropupingAndCounting {
+public class GroupingAndCounting {
 	public static void main(String[] args) {
 		List<String> names = Arrays.asList("AA", "BB", "AA", "CC");
 		Map<String, Long> grouping = names.stream()
