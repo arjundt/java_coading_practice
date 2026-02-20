@@ -4,6 +4,7 @@ import java.util.LinkedHashMap;
 import java.util.Map.Entry;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 //find the first not repeating character in string swiss
 public class FirstNonRepeatingCharacter {
@@ -31,9 +32,8 @@ public class FirstNonRepeatingCharacter {
 		System.out.println(asInt);
 		System.out.println(Character.toString(asInt));
 		
-//		--------------------------------------------
+		
 		String str = "Salars";  //l
-
         Character firstNonRepeating = str.toLowerCase().chars()
         		.mapToObj(c -> (char)c)
         		.collect(Collectors.groupingBy(Function.identity(), 
@@ -44,6 +44,13 @@ public class FirstNonRepeatingCharacter {
         		.orElse('#');
         System.out.println(firstNonRepeating);
         
+        String firstRepeated = Stream.of(str.split(""))
+	        .filter(s -> str.indexOf(s) != str.lastIndexOf(s))
+	        .findFirst()
+	        .get();
+        System.out.println("firstRepeated: " + firstRepeated);
+        
+        //Find first repeating character
         Character firstRepeating = str.toLowerCase().chars()
         		.mapToObj(c -> (char)c)
         		.collect(Collectors.groupingBy(Function.identity(), 
