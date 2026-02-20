@@ -1,6 +1,7 @@
 package com.example.stream;
 
 import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.Map.Entry;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -8,18 +9,8 @@ import java.util.stream.Stream;
 
 //find the first not repeating character in string swiss
 public class FirstNonRepeatingCharacter {
-
-//	public static void main(String[] args) {
-//		String str = "swiss";
-//		String outtt = Stream.of(str.split(""))
-//		.collect(Collectors.groupingBy(c -> c, Collectors.counting()))
-//		.entrySet().stream()
-//		.filter(e->e.getValue()==1).map(Map.Entry::getKey).findFirst().get();
-//		System.out.println(outtt);
-//		
-//	}
-	
 	public static void main(String[] args) {
+		System.out.println("FirstNonRepeatingCharacter");
 		String input = "swiss";
 		Character first = input.chars().mapToObj(c -> (char) c)
 		.filter(c-> input.indexOf(c) == input.lastIndexOf(c))
@@ -29,12 +20,17 @@ public class FirstNonRepeatingCharacter {
 		int asInt = input.chars()
 			.filter(c -> input.indexOf(c)==input.lastIndexOf(c))
 			.findFirst().getAsInt();
-		System.out.println(asInt);
 		System.out.println(Character.toString(asInt));
 		
+		String outt = Stream.of(input.split(""))
+			.collect(Collectors.groupingBy(c -> c, Collectors.counting()))
+			.entrySet().stream()
+			.filter(e->e.getValue()==1)
+			.map(Map.Entry::getKey)
+			.findFirst().get();
+		System.out.println(outt);
 		
-		String str = "Salars";  //l
-        Character firstNonRepeating = str.toLowerCase().chars()
+        Character firstNonRepeating = input.toLowerCase().chars()
         		.mapToObj(c -> (char)c)
         		.collect(Collectors.groupingBy(Function.identity(), 
         				LinkedHashMap::new, Collectors.counting()))
@@ -44,14 +40,15 @@ public class FirstNonRepeatingCharacter {
         		.orElse('#');
         System.out.println(firstNonRepeating);
         
-        String firstRepeated = Stream.of(str.split(""))
-	        .filter(s -> str.indexOf(s) != str.lastIndexOf(s))
+        System.out.println("FirstRepeatingCharacter");
+        String firstRepeated = Stream.of(input.split(""))
+	        .filter(s -> input.indexOf(s) != input.lastIndexOf(s))
 	        .findFirst()
 	        .get();
-        System.out.println("firstRepeated: " + firstRepeated);
+        System.out.println(firstRepeated);
         
         //Find first repeating character
-        Character firstRepeating = str.toLowerCase().chars()
+        Character firstRepeating = input.toLowerCase().chars()
         		.mapToObj(c -> (char)c)
         		.collect(Collectors.groupingBy(Function.identity(), 
         				LinkedHashMap::new, Collectors.counting()))
