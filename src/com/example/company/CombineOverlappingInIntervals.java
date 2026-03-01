@@ -16,26 +16,27 @@ public class CombineOverlappingInIntervals {
 	public static void main(String[] args) {
 		int[][] intervals = {{1,3}, {2,6}, {8,10}, {15,18}};
 		int[][] mergedIntervals = mergeIntervals(intervals);
+		
+		for (int[] interval : mergedIntervals) {
+			System.out.println(Arrays.toString(interval));
+		}
 	}
+	
 	public static int[][] mergeIntervals(int[][] intervals){
 		Arrays.sort(intervals, Comparator.comparingInt(arr -> arr[0]));
 		List<int[]> result = new ArrayList<>();
 		
-		int[] crr = intervals[0];
-		result.add(crr);
+		int[] current = intervals[0];
+		result.add(current);
 		
 		for(int i = 1; i< intervals.length; i++) {
-			if(intervals[i][0] <= crr[1]) {
-				crr[1] = Math.max(crr[1], intervals[i][1]);
+			if(intervals[i][0] <= current[1]) {
+				current[1] = Math.max(current[1], intervals[i][1]);
 			} else {
-				
+				current = intervals[i];
+				result.add(current);
 			}
 		}
-		
-		
-		
-		return null;
+		return result.toArray(new int[result.size()][]);
 	}
 }
-//[1, 3] [2, 6]
-//		[1, 6]
