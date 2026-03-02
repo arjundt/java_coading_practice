@@ -1,7 +1,6 @@
 package com.example.java17;
 
-
-public sealed class SealedClassSyntax permits Animal{
+public sealed class SealedClassSyntax permits Animal {
 
 }
 
